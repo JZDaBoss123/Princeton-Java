@@ -1,0 +1,48 @@
+import java.util.HashMap; 
+import java.util.Map; 
+public class Blob {
+  private int pixelCount;
+  private HashMap<Integer, Integer> coordinates;
+  
+  public        Blob() {                    //  creates an empty blob
+    pixelCount = 0;
+    coordinates = new HashMap<>();
+  }
+  public   void add(int x, int y) {          //  adds pixel (x, y) to this blob
+    coordinates.put(x, y);
+    pixelCount++;
+  }
+  public    int mass()                    { //  number of pixels added to this blob
+    return pixelCount;
+  }
+  public double distanceTo(Blob that) {     //  Euclidean distance between the center of masses of the two blobs
+    return 0;
+  }
+  public String toString() {                //  string representation of this blob (see below)
+    System.out.print(pixelCount + " ");
+    System.out.println("(" + this.centerX() +", " + this.centerY() + ")");
+    return "";
+  }
+  private double centerX() { //center of mass X coordinates
+    int sum = 0;
+    for (int x : coordinates.keySet()) {
+      sum += x;
+    }
+    return sum / pixelCount;
+  }
+  private double centerY() {//center of mass Y coordinate
+    int sum = 0;
+    for (int x : coordinates.keySet()) {
+      sum += coordinates.get(x);
+    }
+    return sum / pixelCount;
+  }
+  public static void main(String[] args) {  //  tests this class by directly calling all instance methods
+    Blob b = new Blob();
+    b.add(10, 100);
+    b.add(1,10);
+    b.add(3,11);
+    b.add(13,17);
+    System.out.println(b);
+  }
+}

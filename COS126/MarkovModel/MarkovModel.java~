@@ -1,0 +1,60 @@
+import java.util.HashMap; 
+import java.util.Map; 
+
+public class MarkovModel {
+  private int order;
+  private String input;
+  private HashMap<String, Integer> kMap;
+  private HashMap<String, Integer> charMap;
+  
+  // creates a Markov model of order k for the specified text
+  public MarkovModel(String text, int k) {
+    this.order = k;
+    this.input = text;
+    kMap = new HashMap<>();
+    charMap = new HashMap<>();
+    
+    String subK = "";
+    //substring from i to i+k, if identical....
+  }
+  
+  // returns the order k of this Markov model
+  public int order() {
+    return order;
+  }
+  
+  // returns a string representation of the Markov model (as described below)
+  public String toString() {
+    
+  }
+  
+  // returns the number of times the specified kgram appears in the text
+  public int freq(String kgram) {
+    if (kgram.length() != order) {
+      throw new IllegalArgumentException ("kgram is of the wrong length");
+    }
+    
+  }
+  
+  // returns the number of times the character c follows the specified
+  // kgram in the text
+  public int freq(String kgram, char c) {
+    if (kgram.length() != order) {
+      throw new IllegalArgumentException ("kgram is of the wrong length");
+    }
+  }
+  
+  // returns a random character that follows the specified kgram in the text,
+  // chosen with weight proportional to the number of times that character
+  // follows the specified kgram in the text
+  public char random(String kgram) {
+    if (kgram.length() != order) {
+      throw new IllegalArgumentException ("kgram is of the wrong length");
+    }
+  }
+  
+  // tests this class by directly calling all instance methods
+  public static void main(String[] args) {
+    
+  }
+}
